@@ -1,0 +1,41 @@
+header
+{
+  width: 100%;
+  height: 5vw;
+}
+
+
+.logo
+{
+  float: left;
+  margin-left: 10vw;
+}
+
+nav ul li
+{
+  display: inline-block;
+  margin-right: 2vw;
+}
+
+nav ul li a
+{
+  text-decoration: none;
+}
+
+nav
+{
+  float: right;
+  margin-right: 10vw;
+}
+
+.home
+{
+  text-align: center;
+  margin-top: 6vw;
+}
+
+.home p
+{
+  width: 60%;
+  margin-left: 20%;
+}
