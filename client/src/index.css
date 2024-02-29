@@ -20,6 +20,7 @@ nav ul li
 nav ul li a
 {
   text-decoration: none;
+  color: black;
 }
 
 nav
@@ -38,4 +39,26 @@ nav
 {
   width: 60%;
   margin-left: 20%;
+}
+
+.home form
+{
+  width: 70%;
+  margin-left: 15%;
+  border: 1px solid black;
+  padding: 1vw;
+}
+
+.home form input
+{
+  width: 60%;
+  height: 2vw;
+  margin-bottom: 2vw;
+}
+
+.home form label
+{
+  float: left;
+  margin-left: 20%;
+  font-weight: bold;
 }
