@@ -62,3 +62,14 @@ nav
   margin-left: 20%;
   font-weight: bold;
 }
+
+.fichier
+{
+  width: 25%;
+  display: inline-block;
+}
+
+.fichier img
+{
+  width: 60%;
+}

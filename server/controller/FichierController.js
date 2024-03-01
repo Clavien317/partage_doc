@@ -1,15 +1,21 @@
+const Fichier = require("../model/fichierModel");
 
-
-const ajout=()=>
-{
-    console.log("On a bien ajouter un fichier");
+const ajout = async (req, res) => {
+  try {
+    const { titre } = req.body;
+    const cheminFichier = req.file.path;
+    await Fichier.create({ cheminFichier, titre });
+    res.status(201).json("Success");
+  } catch (err) {
+    console.error("Erreur lors de l'ajout du fichier :", err);
+    res.status(500).json("Erreur lors de l'ajout du fichier");
+  }
 }
 
-const telecharger=()=>
+const liste=async(req,res)=>
 {
-    console.log("On a bien ajouter un fichier");
+  const data = await Fichier.find()
+  res.json({data})
 }
 
-
-
-module.exports = {ajout,telecharger}
+module.exports = { ajout,liste};

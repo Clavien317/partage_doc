@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import App from './App.jsx'
 import './index.css'
 import Envoyer_fic from './pages/Envoyer_fic.jsx'
+import Liste from './pages/Liste.jsx'
 
 const router = createBrowserRouter(
 [
@@ -14,6 +15,10 @@ const router = createBrowserRouter(
   {
     path:"/envoyer",
     element: <Envoyer_fic />
+  },
+  {
+    path:"/liste",
+    element: <Liste />
   }
 ]
 )

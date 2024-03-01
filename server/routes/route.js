@@ -1,8 +1,11 @@
-
-const {ajout, telecharger} = require("../controller/FichierController")
+const upload = require("../middlware/upload")
+const {ajout, liste} = require("../controller/FichierController")
 const router = require("express").Router()
 
 
 
-router.post("/ajout", ajout)
-router.post("/download", telecharger)
+router.post('/ajout', upload.single('cheminFichier'), ajout);
+router.get("/liste",liste)
+// router.get("/uploads/:image",fichier)
+
+module.exports = router

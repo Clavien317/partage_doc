@@ -9,6 +9,7 @@ function Header() {
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/envoyer">Envoyer fichier</a></li>
+                    <li><a href="/liste">Liste</a></li>
                     <li><a href="">Aide</a></li>
                 </ul>
             </nav>
