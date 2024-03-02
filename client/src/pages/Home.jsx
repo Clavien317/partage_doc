@@ -15,7 +15,7 @@ function Home() {
         <br />
         <br />
         <br />
-      <h1>Realisation d'une application de partage d'une fichier et du document</h1>
+      <h1>Realisation d'une application de partage d'une fichier et d'un document</h1>
       <br />
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
