@@ -39,7 +39,7 @@ function Envoyer_fic() {
     <div>
       <Header />
       <div className="home">
-        <h3>Envoyer votre fichier ou document</h3>
+        <h3>Envoyer une fichier ou un document</h3>
         <br />
         <br />
         <form onSubmit={valid}>
