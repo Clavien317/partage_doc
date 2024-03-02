@@ -17,6 +17,11 @@ const schema = new mongoose.Schema({
     cheminFichier: {
         type: String,
         required: true
+    },
+    type:
+    {
+        type:String,
+        required:false
     }
 });
 

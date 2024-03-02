@@ -19,18 +19,27 @@ function Liste() {
         fetchData()
     }, []);
 
-    const downloadFile = async (fileName) => {
-        const url = "/vite.svg"
-        const response = await fetch(url);
-        const blob = await response.blob();
-        const urlObject = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = urlObject;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    };
+
+    const Download = async(id)=>
+    {
+        const img = document.getElementById("img")
+        const a = document.createElement("a")
+        a.href = `http://localhost:9000/telecharger/${id}`
+        img.appendChild(a)
+        a.click()
+        a.style.display= "none"
+    }
+
+    const typeFich = (item) => {
+        if (item.type && item.type.startsWith('application/pdf')) {
+            return <h5 className='type'>Fichier pdf</h5>
+        } else if (item.type && item.type.startsWith('image')) {
+            return <h5 className='type'>Fichier image</h5>
+            // return <img src={`http://localhost:9000/telecharger/${item._id}`} alt={item.titre} />;
+        } else {
+            return <h5 className='type'>Type de fichier non pris en charge </h5>;
+        }
+    }
 
     return (
         <div>
@@ -39,10 +48,11 @@ function Liste() {
 
             <div className="home">
                 <br />
-            {data && data.map((item, i) => (
-                <div key={i} className='fichier'>
+            {
+            data && data.map((item, i) => (
+                <div key={i} className='fich'>
                     <h3>{item.titre}</h3>
-                    <p>{item.cheminFichier}</p>
+                    {typeFich(item)}
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
                         Ipsa quaerat consequuntur expedita. Autem, vel nulla magnam
@@ -50,7 +60,9 @@ function Liste() {
                         consectetur voluptates, excepturi ex omnis?
                     </p>
                     <br />
-                    <button onClick={() => downloadFile(item.cheminFichier)}>Download</button>
+                    <button onClick={() => Download(item._id)}>Download</button>
+                    <div id='img'>
+                    </div>
                 </div>
     ))}
 </div>

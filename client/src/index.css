@@ -33,6 +33,9 @@ nav
 {
   text-align: center;
   margin-top: 6vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .home p
@@ -63,12 +66,19 @@ nav
   font-weight: bold;
 }
 
-.fichier
+.fich
 {
   width: 25%;
-  display: inline-block;
   border: 1px solid black;
+  display: inline-block;
   padding: 5px;
-  margin: 5px;
-  height: 23vw;
+  margin: 10px;
+  height: 25vw;
+}
+
+.type
+{
+  padding: 5px;
+  background-color: blue;
+  color: white;
 }
