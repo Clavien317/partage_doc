@@ -18,4 +18,13 @@ const liste=async(req,res)=>
   res.json({data})
 }
 
-module.exports = { ajout,liste};
+
+
+const telecharger=async(req,res)=>
+{
+  const id = req.params 
+  const file = await Fichier.findById({id})
+  res.status(200).json({file})
+}
+
+module.exports = { ajout,liste,telecharger};
