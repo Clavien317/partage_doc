@@ -5,6 +5,9 @@ import App from './App.jsx'
 import './index.css'
 import Envoyer_fic from './pages/Envoyer_fic.jsx'
 import Liste from './pages/Liste.jsx'
+import Inscrir from './pages/Inscir.jsx'
+import Login from './pages/Login.jsx'
+import Home from './pages/Home.jsx'
 
 const router = createBrowserRouter(
 [
@@ -17,8 +20,21 @@ const router = createBrowserRouter(
     element: <Envoyer_fic />
   },
   {
-    path:"/liste",
+    path:"/connected/:id",
+    element: <Home />
+  }
+  ,
+  {
+    path:"/liste/:id",
     element: <Liste />
+  },
+  {
+    path:"/inscrir",
+    element:<Inscrir />
+  },
+  {
+    path:"/login",
+    element: <Login />
   }
 ]
 )

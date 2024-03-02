@@ -1,0 +1,42 @@
+fieldset
+{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5vw;
+}
+
+.inscrir
+{
+    text-align: center;
+}
+
+.inscrir h2
+{
+    margin-top: 5vw;
+}
+
+fieldset form
+{
+    text-align: start;
+}
+
+.inscrir form input,select
+{
+    width: 70%;
+    height: 2vw;
+}
+
+.inscrir form input , label,button,select
+{
+    margin-left: 15%;
+}
+
+.inscrir form button
+{
+    width: 30%;
+    height: 2.5vw;
+    background-color: rgb(17, 46, 233);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}

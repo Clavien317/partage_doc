@@ -3,10 +3,13 @@ import Header from '../components/Header';
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
 
+
+
+const local = JSON.parse(localStorage.getItem("token"));
+const id = local[1];
 function Envoyer_fic() {
   const [input, setInput] = useState({});
   const navigate = useNavigate()
-
   const recup = (e) => {
     const { name, value, files } = e.target;
     setInput(values => ({ ...values, [name]: files ? files[0] : value }));
@@ -26,7 +29,7 @@ function Envoyer_fic() {
     {
       await axios.post("http://localhost:9000/ajout", formData);
       console.log("Fichier envoyé avec succès !");
-      navigate("/liste")
+      navigate(`/liste/${id}`)
     } catch (error) {
       console.error("Erreur lors de l'envoi du fichier :", error);
     }
@@ -44,7 +47,6 @@ function Envoyer_fic() {
           <br />
           <input type="file" onChange={recup} name="cheminFichier" />
           <br />
-
           <label>Titre</label>
           <br />
           <input type="text" onChange={recup} name="titre" value={input.titre || ''} />

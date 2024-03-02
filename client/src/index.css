@@ -2,13 +2,23 @@ header
 {
   width: 100%;
   height: 5vw;
+  background-color: rgb(245, 239, 231);
+  position: fixed;
+  margin-bottom: 5vw;
+}
+
+.header
+{
+  margin: 0;
+  padding: 0;
+  margin-top: -1vw;
 }
 
 
 .logo
 {
   float: left;
-  margin-left: 10vw;
+  margin-left: 7vw;
 }
 
 nav ul li
@@ -27,6 +37,7 @@ nav
 {
   float: right;
   margin-right: 10vw;
+  margin-top: 1vw;
 }
 
 .home
@@ -38,7 +49,22 @@ nav
   padding: 0;
 }
 
+.home1
+{
+  text-align: center;
+  margin-top: 6vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .home p
+{
+  width: 60%;
+  margin-left: 20%;
+}
+
+.home1 p
 {
   width: 60%;
   margin-left: 20%;
@@ -81,4 +107,46 @@ nav
   padding: 5px;
   background-color: blue;
   color: white;
+}
+
+.profil
+{
+  width: 20%;
+  height: 40vw;
+  background-color: blue;
+  float: left;
+  position: fixed;
+  margin-top: 5vw;
+  text-align: center;
+}
+
+.profil .photo
+{
+  width: 30%;
+  height: 6vw;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 35%;
+  margin-top: 2vw;
+}
+
+.profil .deconnect
+{
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  height: 3vw;
+  background-color: rgb(6, 29, 73);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  right: 5vw;
+  bottom: 2vw;
+}
+
+.liste
+{
+  width: 79%;
+  float: right;
+  margin-top: 5vw;
 }

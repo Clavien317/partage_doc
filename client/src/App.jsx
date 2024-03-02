@@ -1,12 +1,12 @@
 
 import './App.css'
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
     <>
-    <Header />
+    <Navbar />
     
     <div className="home">
       <h1>Realisation d'une application de partage d'une fichier et du document</h1>

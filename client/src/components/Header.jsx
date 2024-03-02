@@ -1,15 +1,19 @@
 import React from 'react'
 
 function Header() {
+
+  const local = JSON.parse(localStorage.getItem("token"));
+  const id = local[1];
+
   return (
     <div className='header'>
         <header>
             <h1 className='logo'>LOGO</h1>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href={`/connected/${id}`}>Home</a></li>
                     <li><a href="/envoyer">Envoyer fichier</a></li>
-                    <li><a href="/liste">Liste</a></li>
+                    <li><a href={`/liste/${id}`}>Liste</a></li>
                     <li><a href="">Aide</a></li>
                 </ul>
             </nav>
