@@ -80,7 +80,7 @@ function Connect() {
                     <button> Connect</button>
                     <br />
                     <br />
-                    <a href="/reinitile_mdp">Mot de passe oublier</a>
+                    <a href="/reinitile_mdp" className='reinit'>Mot de passe oublier</a>
                 </form>
         </fieldset>
     </div>

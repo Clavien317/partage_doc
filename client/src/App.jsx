@@ -9,6 +9,9 @@ function App() {
     <Navbar />
     
     <div className="home">
+      <br />
+      <br />
+      <br />
       <h1>Realisation d'une application de partage d'une fichier et du document</h1>
       <br />
       <p>

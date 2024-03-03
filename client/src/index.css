@@ -49,6 +49,13 @@ nav
   padding: 0;
 }
 
+.reinit
+{
+  text-decoration: none;
+  color: blue;
+  margin-left: 20%;
+}
+
 .home1
 {
   text-align: center;

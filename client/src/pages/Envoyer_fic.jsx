@@ -5,16 +5,25 @@ import {useNavigate} from "react-router-dom"
 
 
 
-const local = JSON.parse(localStorage.getItem("token"));
-const id = local[1];
 function Envoyer_fic() {
   const [input, setInput] = useState({});
-  const navigate = useNavigate()
   const recup = (e) => {
     const { name, value, files } = e.target;
     setInput(values => ({ ...values, [name]: files ? files[0] : value }));
   }
 
+  const navigate = useNavigate()
+const local = JSON.parse(localStorage.getItem("token"));
+
+if(local !=null)
+{
+  const id = local[1];
+
+}
+else
+{
+  navigate("/login")
+}
   const valid = async (e) => {
     e.preventDefault();
     if (!input.titre || !input.cheminFichier) {
@@ -29,7 +38,15 @@ function Envoyer_fic() {
     {
       await axios.post("http://localhost:9000/ajout", formData);
       console.log("Fichier envoyé avec succès !");
-      navigate(`/liste/${id}`)
+      if(id!=null)
+      {
+        navigate(`/liste/${id}`)
+
+      }else
+      {
+        console.log("ID n'existe pas");
+      }
+
     } catch (error) {
       console.error("Erreur lors de l'envoi du fichier :", error);
     }
