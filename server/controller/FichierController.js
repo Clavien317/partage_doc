@@ -21,8 +21,6 @@ const ajout = async (req, res) => {
 
 const liste=async(req,res)=>
 {
-  // const niveau = req.params.niveau
-  // const data = await Fichier.findAll({where:{niveau:niveau}})
   const data = await Fichier.findAll()
   res.json({data})
 }
