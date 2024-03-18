@@ -5,9 +5,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function Liste() {
     const [data, setData] = useState([]);
-    const [userInfo,setUserInfo] = useState([])
+    const [userInfo,setUserInfo] = useState("")
     const {id} = useParams()
     const history = useNavigate();
+    const [niv,setNiv] = useState("")
     // const local = JSON.parse(localStorage.getItem("token"));
 
 
@@ -41,6 +42,7 @@ function Liste() {
       try
       {
         const Info = await axios.get(`http://localhost:9000/${id}`)
+        setNiv(Info.data.niveau)
         setUserInfo(Info.data)
         console.log("À PROPOS DE CE USER", Info.data);
 
@@ -51,20 +53,23 @@ function Liste() {
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await axios.get("http://localhost:9000/liste");
-                console.log(res.data.data);
-                const fich = res.data.data;
-                setData(fich);
-            } catch (error)
-            {
-                console.error("Erreur lors de la récupération des données :", error);
-            }
-        }
         fetchData()
         information()
     }, []);
+
+
+    const fetchData = async () => {
+      try {
+        
+          const res = await axios.get(`http://localhost:9000/liste`);
+          // console.log(res.data.data);
+          const fich = res.data.data;
+          setData(fich);
+      } catch (error)
+      {
+          console.error("Erreur lors de la récupération des données :", error);
+      }
+  }
 
 
     const Download = async(id)=>
@@ -92,6 +97,13 @@ function Liste() {
       history("/login");
     };
 
+    const supprimer=async(id)=>
+    {
+      await axios.delete(`http://localhost:9000/supprimer/${id}`)
+      alert("Supprimeee successful")
+      fetchData()
+    }
+
     return (
         <div>
             <Header />
@@ -99,38 +111,59 @@ function Liste() {
             <div className="home">
               <div className="profil">
                 <div className="photo"></div>
-                {
-                  userInfo.map((info,i)=>
-                  {
-                    return(
-                      <div key={i}>
-                        <h2>{info.nom}</h2>
-                        <h4>{info.email}</h4>
-                        <h4>{info.matricule}</h4>
-                        <h4>{info.niveau}  {info.parcours}</h4>
-                      </div>
-                    )
-                  })
-                }
+                  <div>
+                    <h2>{userInfo.nom}</h2>
+                    <h4>{userInfo.email}</h4>
+                    <h4>{userInfo.matricule}</h4>
+                    <h4>{userInfo.niveau}  {userInfo.parcours}</h4>
+                    <h4>{userInfo.statut}</h4>
+                  </div>
 
                 <button className='deconnect' onClick={()=>deconnecter()}>Deconnecter</button>
               </div>
                 <div className="liste">
-                  {data && data.map((item, i) => (
-                      <div key={i} className='fich'>
-                          <h3>{item.titre}</h3>
-                          {typeFich(item)}
-                          <p>
-                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                              Ipsa quaerat consequuntur expedita. Autem, vel nulla magnam
-                              quas ullam natus officiis doloribus sint aliquid iste vitae, 
-                              consectetur voluptates, excepturi ex omnis?
-                          </p>
-                          <br />
-                          <button onClick={() => Download(item._id)}>Download</button>
-                          <div id='img'>
-                          </div>
-                      </div>
+                  {
+                  data && data.map((item, i) => (
+                      item.niveau ==niv ? (
+                      <>
+                      {
+                        userInfo.statut ==="delegue"?
+                        (<>
+                          <div key={i} className='fich'>
+                            <button className='supprimer' onClick={()=>supprimer(`${item.id}`)}>X</button>
+                            <h3>{item.titre}</h3>
+                            {typeFich(item)}
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                                Ipsa quaerat consequuntur expedita. Autem, vel nulla magnam
+                                quas ullam natus officiis doloribus sint aliquid iste vitae, 
+                                consectetur voluptates, excepturi ex omnis?
+                            </p>
+                            <br />
+                            <button onClick={() => Download(item.id)}>Download</button>
+                            <div id='img'>
+                            </div>
+                        </div>
+                        </>):(
+                        <>
+                          <div key={i} className='fich'>
+                            <h3>{item.titre}</h3>
+                            {typeFich(item)}
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                                Ipsa quaerat consequuntur expedita. Autem, vel nulla magnam
+                                quas ullam natus officiis doloribus sint aliquid iste vitae, 
+                                consectetur voluptates, excepturi ex omnis?
+                            </p>
+                            <br />
+                            <button onClick={() => Download(item.id)}>Download</button>
+                            <div id='img'>
+                            </div>
+                        </div>
+                        </>)
+                      }
+                        
+                      </>):("")
                     ))}
                 </div>
             </div>

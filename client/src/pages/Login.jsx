@@ -20,14 +20,10 @@ function Connect() {
 
     const submit = async (e) => {
         e.preventDefault();
+        console.log(input);
         try {
             const response = await axios.post("http://localhost:9000/login", input);
-            // console.log("Votre ID : ",response.data.id);
-
-            const local = [response.data.token, response.data.id];
-            
-
-
+            const local = [response.data.token, response.data.id,response.data.niveau];
             console.log(local);
             if (response.data.result === "Connexion réussie") {
                 localStorage.setItem("token", JSON.stringify(local));
@@ -35,19 +31,18 @@ function Connect() {
                 {
                     console.log(input.email);
                     console.log(response.data.token);
-                    naviagate(`/liste/${response.data.id}`); 
-                    // naviagate("/liste")
+                    naviagate(`/connected/${response.data.id}`); 
                 }
             } else 
             {
                 console.log("Email ou mot de passe invalide");
             }
         } catch (error) {
+            alert("Email ou mot de passe invalide");
+
             console.log("Erreur lors de la connexion", error);
         }
     }
-
-
     const txt=()=>
     {
         setTxte(!txte)
@@ -67,20 +62,20 @@ function Connect() {
 
                     <label htmlFor="">Email</label>
                     <br />
-                    <input type="text" name='email' onChange={change}/>
+                    <input type="text" name='email' onChange={change} required/>
                     <br />
                     <br />
 
                     <label htmlFor="">Password</label>
                     <br />
-                    <input type={type?"text":"password"} name='password' onChange={change}/> <span onClick={txt}>{(txte?"Show":"Hide")}</span>
+                    <input type={type?"text":"password"} name='password' onChange={change} required/> <span onClick={txt}>{(txte?"Show":"Hide")}</span>
                     <br />
                     <br />
                     <br />
                     <button> Connect</button>
                     <br />
                     <br />
-                    <a href="/reinitile_mdp" className='reinit'>Mot de passe oublier</a>
+                    <a href="" className='reinit'>Mot de passe oublier</a>
                 </form>
         </fieldset>
     </div>

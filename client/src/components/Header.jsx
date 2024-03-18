@@ -12,8 +12,8 @@ function Header() {
             <nav>
                 <ul>
                     <li><a href={`/connected/${id}`}>Home</a></li>
-                    <li><a href="/envoyer">Envoyer fichier</a></li>
-                    <li><a href={`/liste/${id}`}>Liste</a></li>
+                    <li><a href={`/envoyer/${id}/delegue`}>Envoyer fichier</a></li>
+                    <li><a href={`/liste/${id}/visiteur`}>Liste</a></li>
                     <li><a href="">Aide</a></li>
                 </ul>
             </nav>

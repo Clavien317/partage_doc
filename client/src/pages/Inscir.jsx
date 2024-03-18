@@ -57,31 +57,31 @@ function Inscrir() {
 
                     <label htmlFor="">Matricule</label>
                     <br />
-                    <input type="text" name='matricule' onChange={change}/>
+                    <input type="text" name='matricule' onChange={change} required/>
                     <br />
                     <br />
 
                     <label htmlFor="">Nom et prenom</label>
                     <br />
-                    <input type="text" name='nom' onChange={change}/>
+                    <input type="text" name='nom' onChange={change} required/>
                     <br />
                     <br />
 
                     <label htmlFor="">Email</label>
                     <br />
-                    <input type="text" name='email' onChange={change}/>
+                    <input type="text" name='email' onChange={change} required/>
                     <br />
                     <br />
 
                     <label htmlFor="">Tel num</label>
                     <br />
-                    <input type="text" name='tel' onChange={change}/>
+                    <input type="text" name='tel' onChange={change} required/>
                     <br />
                     <br />
 
                     <label htmlFor="">Parcours</label>
                     <br />
-                    <select name="parcours" id=""  onChange={change}>
+                    <select name="parcours" id=""  onChange={change} required>
                         <option value="">Selectionnez votre parcours</option>
                         <option value="GB">GB</option>
                         <option value="ASR">ASR</option>
@@ -94,7 +94,7 @@ function Inscrir() {
 
                     <label htmlFor="">Niveau</label>
                     <br />
-                    <select name="niveau" id=""  onChange={change}>
+                    <select name="niveau" id=""  onChange={change} required>
                         <option value="">Selectionnez votre niveau</option>
                         <option value="L1">L1</option>
                         <option value="L2">L2</option>
@@ -107,7 +107,7 @@ function Inscrir() {
 
                     <label htmlFor="">Password</label>
                     <br />
-                    <input type={type?"text":"password"} name='password' onChange={change}/> <span onClick={txt}>{(txte?"Show":"Hide")}</span>
+                    <input type={type?"text":"password"} name='password' onChange={change}  required/> <span onClick={txt}>{(txte?"Show":"Hide")}</span>
                     <br />
                     <br />
                     <br />

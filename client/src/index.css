@@ -43,10 +43,66 @@ nav
 .home
 {
   text-align: center;
-  margin-top: 6vw;
+  margin-top: 8vw;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.home3
+{
+  text-align: center;
+  margin-top: 10vw;
+}
+
+.home3 table
+{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.home3 table th
+{
+  padding: 10px;
+  background-color: blue;
+  color: white;
+}
+
+.home3 table td
+{
+  padding: 10px;
+}
+
+.home3 table td a
+{
+  text-decoration: none;
+  color: black;
+}
+
+.home3 form
+{
+  width: 60%;
+  margin-left: 20%;
+}
+
+.home3 form input
+{
+  width: 60%;
+  height: 2vw;
+  text-align: center;
+}
+
+.home3 form label
+{
+  float: left;
+  margin-left: 20%;
+}
+
+.home3 form #select2
+{
+  width: 60%;
+  height: 3vw;
+  margin-right: 15%;
 }
 
 .reinit
@@ -90,6 +146,14 @@ nav
   width: 60%;
   height: 2vw;
   margin-bottom: 2vw;
+}
+
+.home form #niveau
+{
+  width: 60%;
+  height: 2vw;
+  margin-bottom: 2vw;
+  margin-right: 15%;
 }
 
 .home form label
@@ -156,4 +220,12 @@ nav
   width: 79%;
   float: right;
   margin-top: 5vw;
+}
+
+.supprimer
+{
+  background-color: red;
+  color: white;
+  border: 0;
+  margin-left: 17vw;
 }

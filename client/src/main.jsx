@@ -8,6 +8,14 @@ import Liste from './pages/Liste.jsx'
 import Inscrir from './pages/Inscir.jsx'
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
+import LoginAdmin from "./admin/LoginAdmin.jsx"
+import HomeAdmin from "./admin/HomeAdmin.jsx"
+import ListeEtudiant from './admin/ListeEtudiant.jsx'
+import ListeLivre from './admin/ListeLivre.jsx'
+import ModifierStatut from './admin/ModifierStatut.jsx'
+
+
+
 
 const router = createBrowserRouter(
 [
@@ -16,7 +24,7 @@ const router = createBrowserRouter(
     element: <App />
   },
   {
-    path:"/envoyer",
+    path:"/envoyer/:id/delegue",
     element: <Envoyer_fic />
   },
   {
@@ -25,7 +33,7 @@ const router = createBrowserRouter(
   }
   ,
   {
-    path:"/liste/:id",
+    path:"/liste/:id/visiteur",
     element: <Liste />
   },
   {
@@ -35,6 +43,26 @@ const router = createBrowserRouter(
   {
     path:"/login",
     element: <Login />
+  },
+  {
+    path:"/login-admin",
+    element: <LoginAdmin />
+  },
+  {
+    path:"/accueil/admin",
+    element: <HomeAdmin />
+  },
+  {
+    path:"/liste/etudiant",
+    element: <ListeEtudiant />
+  },
+  {
+    path:"/liste/livre",
+    element: <ListeLivre />
+  },
+  {
+    path:"/modifier/statut/:id",
+    element: <ModifierStatut />
   }
 ]
 )

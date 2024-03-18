@@ -1,30 +1,49 @@
-const mongoose = require("mongoose");
+const { Sequelize, DataTypes } = require("sequelize");
 
-const url = "mongodb://localhost:27017/partage_file";
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log("Base de données connectée!");
-    })
-    .catch((err) => {
-        console.error("Erreur de connexion à la base de données:", err);
-    });
+const sequelize = new Sequelize("partage_doc", "root", "", {
+    host: "localhost",
+    dialect: "mysql"
+});
 
-const schema = new mongoose.Schema({
+try {
+    sequelize.authenticate();
+    console.log("Connected successful");
+} catch (e) {
+    console.log("No connected", e);
+}
+
+const Fichier = sequelize.define("fichier", {
     titre: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     cheminFichier: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     type:
     {
-        type:String,
-        required:false
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    niveau:
+    {
+        type: DataTypes.STRING,
+        allowNull: false,
+        // references: {
+        //     model: 'etudiant',
+        //     key: 'matricule'
+        // }
     }
 });
 
-const Fichier = mongoose.model("fichier", schema);
+(async () => {
+    try {
+        await sequelize.sync({ force: false, alter: true });
+        console.log("Tables fichier is created successfully.");
+    } catch (error) {
+        console.error("Error synchronizing tables:", error);
+    }
+})();
 
 module.exports = Fichier;
